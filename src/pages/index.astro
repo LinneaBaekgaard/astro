@@ -1,11 +1,179 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout>
-	<Welcome />
+  <header>
+    <div class="logo">
+      <img src="public/logo.png" alt="Logo" />
+    </div>
+
+    <div class="søgefelt">
+      <span class="søge-teskt">Hvad vil du afspille?</span>
+    </div>
+
+    <nav>
+      <ul>
+        <li><button class="knap1">Premium Support Download</button></li>
+        <li><button class="knap1">Install app</button></li>
+        <li><button class="knap1">Tilmeld dig</button></li>
+        <li><button class="knap2">Log In</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="grid_1-1">
+      <section class="bibliotek">
+        <h2>Dit bibliotek</h2>
+        <div class="playliste">
+          <h4>Opret din første playliste</h4>
+          <p>Det er nemt - vi skal nok hjælpe dig</p>
+          <button class="knap3">Opret Playliste</button>
+        </div>
+
+        <div class="podcast">
+          <h4>Lad os finde nogle podcasts, du kan følge</h4>
+          <p>Vi holder dig orienteret om nye episoder</p>
+          <button class="knap3">Udforsk podcasts</button>
+        </div>
+      </section>
+
+      <section class="card-section">
+        <h2>Populære kunstnere</h2>
+        <div class="rund">
+          <Card image="https://via.assets.so/album.png?id=1&q=95&w=360&h=360&fit=fill" navn="Miley Cyrus" rolle="Kunstner" />
+
+          <Card image="https://via.assets.so/album.png?id=2&q=95&w=360&h=360&fit=fill" navn="Bentley" rolle="Kunstner" />
+
+          <Card image="https://via.assets.so/album.png?id=3&q=95&w=360&h=360&fit=fill" navn="Rihanna" rolle="Kunstner" />
+
+          <Card image="https://via.assets.so/album.png?id=4&q=95&w=360&h=360&fit=fill" navn="Jay-Z" rolle="Kunstner" />
+
+          <Card image="https://via.assets.so/album.png?id=5&q=95&w=360&h=360&fit=fill" navn="Allan Jackson" rolle="Kunstner" />
+
+          <Card image="https://via.assets.so/album.png?id=6&q=95&w=360&h=360&fit=fill" navn="Michael Jackson" rolle="Kunstner" />
+        </div>
+
+        <h2>Populære album og singler</h2>
+        <div class="firkant">
+          <Card image="https://picsum.photos/id/65/150/150" rolle="MGP 2010-2025" navn="MGP" />
+
+          <Card image="https://picsum.photos/id/68/150/150" rolle="HIT ME HARD AND SOFT" navn="Billie Eilish" />
+
+          <Card image="https://picsum.photos/id/76/150/150" rolle="KENNY" navn="Benny Jamz, Gilli" />
+
+          <Card image="https://picsum.photos/id/240/150/150" rolle="MÅNEN ER MIN VEN" navn="MAS" />
+
+          <Card image="https://picsum.photos/id/331/150/150" rolle="SkyLL" navn="Lamin" />
+
+          <Card image="https://picsum.photos/id/325/150/150" rolle="Blodigt (feat. Annika)" navn="Anton Westerlin, Annika" />
+        </div>
+      </section>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  /* Header */
+  header {
+    display: flex;
+    position: relative;
+  }
+  .logo img {
+    width: 40px;
+    margin: 10px 10px 0 10px;
+  }
+  .søgefelt {
+    display: flex;
+    align-items: center;
+    background-color: #222;
+    border-radius: 30px;
+    padding: 10px 15px;
+    width: 300px;
+  }
+  .ikon {
+    color: #999;
+    font-size: 18px;
+  }
+  .søgetekst {
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    opacity: 0.6;
+  }
+  nav {
+    position: absolute;
+    right: 5px;
+    top: 0;
+  }
+  nav ul {
+    display: flex;
+    gap: 10px;
+    right: 10px;
+  }
+  nav ul li {
+    list-style-type: none;
+  }
+  .knap1 {
+    width: 170px;
+    height: 40px;
+    border: 30px;
+    background-color: transparent;
+    color: gray;
+  }
+  .knap2 {
+    width: 100px;
+    height: 40px;
+    border-radius: 30px;
+  }
+
+  /* Bibliotek */
+  .bibliotek {
+    background-color: #141414;
+    border-radius: 10px;
+    gap: 10px;
+  }
+  .playliste,
+  .podcast {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 2px 5px 20px 5px;
+    margin-bottom: 10px;
+  }
+  .knap3 {
+    height: 30px;
+    width: 140px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 40px;
+  }
+
+  /* Cards */
+  .grid_1-1 {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 10px;
+    margin: 10px;
+  }
+  .card-section {
+    background-color: rgb(30, 30, 30);
+    border-radius: 10px;
+    padding: 15px;
+  }
+  .rund {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .firkant {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+</style>
